@@ -5,14 +5,18 @@ const TodoItemContainer = styled.div`
   background: #fff;
   border-radius: 8px;
   border-bottom: ${(props) =>
-    new Date(props.createdAt) > new Date(Date.now() - 86400000 * 5)
-      ? "none"
-      : "5px solid red"};
+    getBorderStyleForDate(new Date(props.createdAt), Date.now())};
   margin-top: 8px;
   padding: 16px;
   position: relative;
   box-shadow: 0 4px 8px grey;
 `;
+
+//created to allow for testing styled div
+export const getBorderStyleForDate = (startingDate, currentDate) =>
+  startingDate > new Date(currentDate - 86400000 * 5)
+    ? "none"
+    : "5px solid red";
 
 const ButtonsContainer = styled.div`
   position: absolute;

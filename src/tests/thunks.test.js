@@ -15,7 +15,7 @@ describe("The loadTodos thunk", () => {
     const expectedFirstAction = { type: "LOAD_TODOS_IN_PROGRESS" };
     const expectedSecondAction = {
       type: "LOAD_TODOS_SUCCESS",
-      payload: { fakeTodos },
+      payload: fakeTodos,
     };
 
     await loadTodos()(fakeDispatch);
